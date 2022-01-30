@@ -16,6 +16,10 @@ Set up a `renovate.json` in your repo's root directory with the following conten
 
 This will use the default.json that is defined in this repository. [In the future we may have other json files representing different presets.](https://docs.renovatebot.com/config-presets/#github)
 
+You also need to ensure the following:
+* [renovate](https://github.com/apps/renovate) is allowed on your repository
+* [renovate-approve](https://github.com/apps/renovate-approve) is allowed on your repository
+* All dependabot and auto-merge files are removed from your repository. While, not necessary, they will conflict with each other.
 
 # Default Preset
 Because JSON doesn't support comments, this readme walks through all the options.
