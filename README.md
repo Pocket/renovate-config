@@ -20,6 +20,7 @@ You also need to ensure the following:
 * [renovate](https://github.com/apps/renovate) is allowed on your repository
 * [renovate-approve](https://github.com/apps/renovate-approve) is allowed on your repository
 * All dependabot and auto-merge files are removed from your repository. While, not necessary, they will conflict with each other.
+* Allow auto-merge is enabled in your GitHub repository settings. While not necessary this will allow Renovate to use Github's default auto-merging strategy.
 
 # Default Preset
 Because JSON doesn't support comments, this readme walks through all the options.
