@@ -1,11 +1,23 @@
-#renovate-config
+# Renovate Config
 
-This repository holds a re-usable configuration for Renovate across Pocket.
+This repository holds a re-usable configuration for [Renovate](https://www.whitesourcesoftware.com/free-developer-tools/renovate/) across Pocket.
+
+# Usage 
+
+Set up a `renovate.json` in your repo's root directory with the following contents:
+
+```json
+{
+  "extends": [
+    "github>Pocket/renovate-config"
+  ]
+}
+```
+
+This will use the default.json that is defined in this repository. [In the future we may have other json files representing different presets.](https://docs.renovatebot.com/config-presets/#github)
 
 
-
-
-# Config Walk Through
+# Default Preset
 Because JSON doesn't support comments, this readme walks through all the options.
 
 ## Extends
