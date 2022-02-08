@@ -24,5 +24,11 @@
       "matchDepTypes": ["devDependencies"],
       "automerge": true
     }
-  ]
+  ],
+  "node": {
+    "engines": {
+      "npm": "^8",
+      "node": "^14|^16|^18"
+    }
+  }
 }
