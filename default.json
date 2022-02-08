@@ -23,6 +23,20 @@
     {
       "matchDepTypes": ["devDependencies"],
       "automerge": true
+    },
+    {
+      "matchPackagePrefixes": [
+        "cdktf",
+        "cdktf-cli",
+        "constructs"
+      ],
+      "groupName": "cdktf"
+    },
+    {
+      "matchPackagePrefixes": [
+        "@cdktf/"
+      ],
+      "groupName": "@cdktf-providers"
     }
   ],
   "node": {
