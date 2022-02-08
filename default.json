@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
     "group:recommended"
@@ -7,6 +8,7 @@
   "pinDigests": true,
   "platformAutomerge": true,
   "suppressNotifications": ["prIgnoreNotification"],
+  "supportPolicy": "lts",
   "packageRules": [
     {
       "matchDatasources": ["docker"],
@@ -37,6 +39,12 @@
         "@cdktf/"
       ],
       "groupName": "@cdktf-providers"
+    },
+    {
+      "matchDatasources": ["docker"],
+      "semanticCommitType": "ci",
+      "matchPackageNames": ["node"],
+      "versioning": "node"
     }
   ],
   "node": {
