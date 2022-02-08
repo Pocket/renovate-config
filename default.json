@@ -41,7 +41,7 @@
       "groupName": "@cdktf-providers"
     },
     {
-      "matchDatasources": ["docker"],
+      "matchDatasources": ["docker","node","npm"],
       "semanticCommitType": "ci",
       "matchPackageNames": ["node"],
       "versioning": "node"
