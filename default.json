@@ -31,6 +31,8 @@
       "automerge": true
     },
     {
+      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "separateMajorMinor": false,
       "matchPackagePrefixes": [
         "cdktf",
         "cdktf-cli",
