@@ -30,15 +30,10 @@
       "matchPackagePrefixes": [
         "cdktf",
         "cdktf-cli",
-        "constructs"
-      ],
-      "groupName": "cdktf"
-    },
-    {
-      "matchPackagePrefixes": [
+        "constructs",
         "@cdktf/"
       ],
-      "groupName": "@cdktf-providers"
+      "groupName": "cdktf"
     },
     {
       "matchDatasources": ["docker","node","npm"],
