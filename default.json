@@ -2,12 +2,15 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base",
-    "group:recommended"
+    "group:recommended",
+    ":semanticCommits",
+    "workarounds:typesNodeVersioning",
+    "preview:dockerCompose"
   ],
   "labels": ["dependencies"],
   "pinDigests": true,
   "platformAutomerge": true,
-  "suppressNotifications": ["prIgnoreNotification"],
+  "suppressNotifications": ["prIgnoreNotification","onboardingClose"],
   "supportPolicy": "lts",
   "packageRules": [
     {
@@ -20,6 +23,7 @@
     },
     {
       "matchUpdateTypes": ["patch", "pin", "digest"],
+      "dependencyDashboardApproval": false,
       "automerge": true
     },
     {
@@ -32,6 +36,7 @@
     },
     {
       "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "semanticCommitType": "fix",
       "separateMajorMinor": false,
       "matchPackagePrefixes": [
         "cdktf",
@@ -44,7 +49,7 @@
     {
       "matchDatasources": ["docker","node","npm"],
       "semanticCommitType": "ci",
-      "matchPackageNames": ["node", "circleci/node"],
+      "matchPackageNames": ["node", "circleci/node", "cimg/node"],
       "versioning": "node"
     }
   ],

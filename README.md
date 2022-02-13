@@ -32,7 +32,8 @@ Config Block:
 {
   "extends": [
     "config:base",
-    "group:recommended"
+    "group:recommended",
+    ":semanticCommits"
   ]
 }
 ```
@@ -43,6 +44,11 @@ Config Block:
 
 `"group:recommended"` - [Use a default group that will group monorepos and known packages that must be upgrade together, like apollo server together](https://docs.renovatebot.com/presets-config/#configbase)
 
+`":semanticCommits"` - [Use a default group that will enable semantic commits for production dependencies](https://docs.renovatebot.com/semantic-commits/#manually-enabling-or-disabling-semantic-commits)
+
+`"workarounds:typesNodeVersioning"` - [Use node versioning for @types/node](https://docs.renovatebot.com/presets-workarounds/#workaroundstypesnodeversioning)
+
+`"preview:dockerCompose"` - [Use docker-compose preview updating](https://docs.renovatebot.com/presets-preview/#previewdockercompose)
 
 ## Labels
 
@@ -56,10 +62,13 @@ Config Block:
 
 `"platformAutomerge": true,` - [Use github's automerge functionality if it is enabled, instead of Renovates auto-merging](https://docs.renovatebot.com/configuration-options/#platformautomerge)
 
-## Supress Notifications
+## Suppress Notifications
 
-`"suppressNotifications": ["prIgnoreNotification"],` - [Use this field to suppress various types of warnings and other notifications from Renovate](https://docs.renovatebot.com/configuration-options/#suppressnotifications)
+`"suppressNotifications": ["prIgnoreNotification","onboardingClose"],` - [Use this field to suppress various types of warnings and other notifications from Renovate](https://docs.renovatebot.com/configuration-options/#suppressnotifications)
 
+## Support Policy 
+
+`"supportPolicy": "lts",` - Tells Renovate to prefer LTS releases of packages
 
 ## Package Rules
 
@@ -101,9 +110,27 @@ Digest updates are updates to docker upstream images.
 ```json    
 {
   "matchUpdateTypes": ["patch", "pin", "digest"],
+  "dependencyDashboardApproval": false,
   "automerge": true
 }
 ```
+
+### Dependency Dashboard Minor/Major
+
+This makes it so that Minor & Major versions of any package require a developer to click a checkbox on the issues to create a PR. 
+
+This helps reduce GitHub Notification noise for developers.
+
+https://docs.renovatebot.com/configuration-options/#dependencydashboardapproval
+
+```json    
+{
+  "matchUpdateTypes": ["minor", "major"],
+  "dependencyDashboardApproval": true
+}
+```
+
+
 ### Automerge Dev
 
 Auto merge any type of dev dependencies. These are almost always safe.
@@ -113,3 +140,50 @@ Auto merge any type of dev dependencies. These are almost always safe.
   "automerge": true
 }
 ```
+
+### Group CDKTF
+
+Groups all the CDKTF package updates together. This is because when CDKTF provider packages are updated they are almost always updated together and require the latest version of the CDKTF package. This also marks the commits as a fix type which will trigger a release.
+
+```json
+{
+  "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+  "separateMajorMinor": false,
+  "semanticCommitType": "fix",
+  "matchPackagePrefixes": [
+    "cdktf",
+    "cdktf-cli",
+    "constructs",
+    "@cdktf/"
+  ],
+  "groupName": "cdktf"
+}
+```
+
+### Node Update
+
+Match all the node packages in our repos at the same time and use the Node versioning scheme that is defined. The package names will match in any of the package managers (docker, npm, node).
+
+```json
+{
+  "matchDatasources": ["docker","node","npm"],
+  "semanticCommitType": "ci",
+  "matchPackageNames": ["node", "circleci/node", "cimg/node"],
+  "versioning": "node"
+}
+```
+### Node LTS
+
+Ensure that when we update Node we only update to LTS releases of node.
+
+```json
+{
+  "node": {
+    "engines": {
+      "npm": "^8",
+      "node": "^14|^16|^18"
+    }
+  }
+}
+```
+
