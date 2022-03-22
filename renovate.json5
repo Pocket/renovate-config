@@ -16,7 +16,6 @@
     "prIgnoreNotification",
     "onboardingClose"
   ],
-  "supportPolicy": "lts",
   "packageRules": [
     {
       "matchDatasources": [
@@ -62,7 +61,6 @@
         "pin"
       ],
       "semanticCommitType": "fix",
-      "separateMajorMinor": false,
       "matchPackagePrefixes": [
         "cdktf",
         "cdktf-cli",
@@ -102,8 +100,17 @@
   "node": {
     "packageRules": [
       {
-        "npm": "^8",
-        "node": "^14|^16|^18",
+        "allowedVersions": "^14|^16|^18",
+        "matchDepTypes": [
+          "engines"
+        ]
+      }
+    ]
+  },
+  "npm": {
+    "packageRules": [
+      {
+        "allowedVersions": "^8",
         "matchDepTypes": [
           "engines"
         ]
