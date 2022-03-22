@@ -98,6 +98,7 @@
     }
   ],
   "node": {
+    //Ensure that when we update Node we only update to LTS releases of node.
     "packageRules": [
       {
         "allowedVersions": "^14|^16|^18",
@@ -108,6 +109,7 @@
     ]
   },
   "npm": {
+    //Ensure that when we update NPM to only 8
     "packageRules": [
       {
         "allowedVersions": "^8",

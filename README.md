@@ -179,18 +179,4 @@ Match all the node packages in our repos at the same time and use the Node versi
   "versioning": "node"
 }
 ```
-### Node LTS
-
-Ensure that when we update Node we only update to LTS releases of node.
-
-```json
-{
-  "node": {
-    "engines": {
-      "npm": "^8",
-      "node": "^14|^16|^18"
-    }
-  }
-}
-```
 
