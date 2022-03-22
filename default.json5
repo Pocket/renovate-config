@@ -51,6 +51,12 @@
       "semanticCommitType": "ci",
       "matchPackageNames": ["node", "circleci/node", "cimg/node"],
       "versioning": "node"
+    },
+    {
+      //Localstack has a lot of image updates every day. This will only run them on Tuesdays to reduce noise.
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["localstack", "localstack/localstack"],
+      "schedule": ["on tuesday"]
     }
   ],
   "node": {
