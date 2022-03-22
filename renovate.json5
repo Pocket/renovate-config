@@ -1,0 +1,122 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "group:recommended",
+    ":semanticCommits",
+    "workarounds:typesNodeVersioning",
+    "preview:dockerCompose"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "pinDigests": true,
+  "platformAutomerge": true,
+  "suppressNotifications": [
+    "prIgnoreNotification",
+    "onboardingClose"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": [
+        "docker"
+      ],
+      "labels": [
+        "docker-update"
+      ]
+    },
+    {
+      "matchDatasources": [
+        "npm"
+      ],
+      "stabilityDays": 3
+    },
+    {
+      "matchUpdateTypes": [
+        "patch",
+        "pin",
+        "digest"
+      ],
+      "dependencyDashboardApproval": false,
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    },
+    {
+      "matchDepTypes": [
+        "devDependencies"
+      ],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "major",
+        "patch",
+        "pin"
+      ],
+      "semanticCommitType": "fix",
+      "matchPackagePrefixes": [
+        "cdktf",
+        "cdktf-cli",
+        "constructs",
+        "@cdktf/"
+      ],
+      "groupName": "cdktf"
+    },
+    {
+      "matchDatasources": [
+        "docker",
+        "node",
+        "npm"
+      ],
+      "semanticCommitType": "ci",
+      "matchPackageNames": [
+        "node",
+        "circleci/node",
+        "cimg/node"
+      ],
+      "versioning": "node"
+    },
+    {
+      //Localstack has a lot of image updates every day. This will only run them on Tuesdays to reduce noise.
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "localstack",
+        "localstack/localstack"
+      ],
+      "schedule": [
+        "on tuesday"
+      ]
+    }
+  ],
+  "node": {
+    //Ensure that when we update Node we only update to LTS releases of node.
+    "packageRules": [
+      {
+        "allowedVersions": "^14|^16|^18",
+        "matchDepTypes": [
+          "engines"
+        ]
+      }
+    ]
+  },
+  "npm": {
+    //Ensure that when we update NPM to only 8
+    "packageRules": [
+      {
+        "allowedVersions": "^8",
+        "matchDepTypes": [
+          "engines"
+        ]
+      }
+    ]
+  }
+}

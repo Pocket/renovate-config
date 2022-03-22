@@ -22,6 +22,13 @@ You also need to ensure the following:
 * All dependabot and auto-merge files are removed from your repository. While, not necessary, they will conflict with each other.
 * Allow auto-merge is enabled in your GitHub repository settings. While not necessary this will allow Renovate to use Github's default auto-merging strategy.
 
+
+# Testing
+
+Run the following to validate your renovate json
+
+`npx --package renovate -c 'renovate-config-validator'`
+
 # Default Preset
 Because JSON doesn't support comments, this readme walks through all the options.
 
@@ -170,20 +177,6 @@ Match all the node packages in our repos at the same time and use the Node versi
   "semanticCommitType": "ci",
   "matchPackageNames": ["node", "circleci/node", "cimg/node"],
   "versioning": "node"
-}
-```
-### Node LTS
-
-Ensure that when we update Node we only update to LTS releases of node.
-
-```json
-{
-  "node": {
-    "engines": {
-      "npm": "^8",
-      "node": "^14|^16|^18"
-    }
-  }
 }
 ```
 
