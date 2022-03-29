@@ -27,7 +27,9 @@ You also need to ensure the following:
 
 Run the following to validate your renovate json
 
-`npx --package renovate -c 'renovate-config-validator'`
+`cp default.json5 renovate.json5 && npx --package renovate -c 'renovate-config-validator'`
+
+Note: We need to cp default.json5 because the renovate-validator only looks for files named renovate.
 
 # Default Preset
 Because JSON doesn't support comments, this readme walks through all the options.
