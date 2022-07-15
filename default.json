@@ -7,102 +7,72 @@
     "workarounds:typesNodeVersioning",
     "preview:dockerCompose"
   ],
-  "labels": [
-    "dependencies"
-  ],
+  "labels": ["dependencies"],
   "pinDigests": true,
   "platformAutomerge": true,
-  "suppressNotifications": [
-    "prIgnoreNotification",
-    "onboardingClose"
-  ],
+  "suppressNotifications": ["prIgnoreNotification", "onboardingClose"],
   "packageRules": [
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "labels": [
-        "docker-update"
-      ]
+      "matchDatasources": ["docker"],
+      "labels": ["docker-update"]
     },
     {
-      "matchDatasources": [
-        "npm"
-      ],
-      "stabilityDays": 3
+      "matchDatasources": ["npm"],
+      "stabilityDays": 1
     },
     {
-      "matchUpdateTypes": [
-        "patch",
-        "pin",
-        "digest"
-      ],
+      "matchUpdateTypes": ["patch", "pin", "digest"],
       "dependencyDashboardApproval": false,
       "automerge": true
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "major"
-      ],
+      "matchUpdateTypes": ["minor", "major"],
       "dependencyDashboardApproval": true
     },
     {
-      "matchDepTypes": [
-        "devDependencies"
-      ],
+      "matchDepTypes": ["devDependencies"],
       "automerge": true
     },
     {
-      "matchUpdateTypes": [
-        "minor",
-        "major",
-        "patch",
-        "pin"
-      ],
+      "matchDatasources": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "dependencyDashboardApproval": false,
+      "automerge": true
+    },
+    {
+      "semanticCommitType": "chore",
+      "matchPackagePrefixes": ["typescript", "ts-node"],
+      "groupName": "typescript"
+    },
+    {
+      "semanticCommitType": "chore",
+      "matchPackagePrefixes": ["actions/"],
+      "groupName": "github-actions"
+    },
+    {
+      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
       "semanticCommitType": "fix",
-      "matchPackagePrefixes": [
-        "cdktf",
-        "cdktf-cli",
-        "constructs",
-        "@cdktf/"
-      ],
+      "matchPackagePrefixes": ["cdktf", "cdktf-cli", "constructs", "@cdktf/"],
       "groupName": "cdktf"
     },
     {
-      "matchDatasources": [
-        "docker",
-        "node",
-        "npm"
-      ],
+      "matchDatasources": ["docker", "node", "npm"],
       "semanticCommitType": "ci",
-      "matchPackageNames": [
-        "node",
-        "circleci/node",
-        "cimg/node"
-      ],
+      "matchPackageNames": ["node", "circleci/node", "cimg/node"],
       "versioning": "node"
     },
     {
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "localstack",
-        "localstack/localstack"
-      ],
-      "schedule": [
-        "on tuesday"
-      ]
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["localstack", "localstack/localstack"],
+      "schedule": ["on tuesday"]
     }
   ],
   "node": {
     "packageRules": [
       {
         "allowedVersions": "^14|^16|^18",
-        "matchDepTypes": [
-          "engines"
-        ]
+        "matchDepTypes": ["engines"]
       }
     ]
   },
@@ -110,9 +80,7 @@
     "packageRules": [
       {
         "allowedVersions": "^8",
-        "matchDepTypes": [
-          "engines"
-        ]
+        "matchDepTypes": ["engines"]
       }
     ]
   }
