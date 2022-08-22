@@ -65,7 +65,12 @@
     {
       "matchDatasources": ["docker", "node", "npm"],
       "semanticCommitType": "ci",
-      "matchPackageNames": ["node", "circleci/node", "cimg/node"],
+      "matchPackageNames": [
+        "node",
+        "circleci/node",
+        "cimg/node",
+        "@types/node"
+      ],
       "versioning": "node"
     },
     {
