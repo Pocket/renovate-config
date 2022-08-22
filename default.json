@@ -53,6 +53,12 @@
     {
       "matchUpdateTypes": ["minor", "major", "patch", "pin"],
       "semanticCommitType": "fix",
+      "matchPackagePrefixes": ["aws-xray"],
+      "groupName": "aws-xray"
+    },
+    {
+      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "semanticCommitType": "fix",
       "matchPackagePrefixes": ["cdktf", "cdktf-cli", "constructs", "@cdktf/"],
       "groupName": "cdktf"
     },
