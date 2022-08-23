@@ -53,13 +53,24 @@
     {
       "matchUpdateTypes": ["minor", "major", "patch", "pin"],
       "semanticCommitType": "fix",
+      "matchPackagePrefixes": ["aws-xray"],
+      "groupName": "aws-xray"
+    },
+    {
+      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "semanticCommitType": "fix",
       "matchPackagePrefixes": ["cdktf", "cdktf-cli", "constructs", "@cdktf/"],
       "groupName": "cdktf"
     },
     {
       "matchDatasources": ["docker", "node", "npm"],
       "semanticCommitType": "ci",
-      "matchPackageNames": ["node", "circleci/node", "cimg/node"],
+      "matchPackageNames": [
+        "node",
+        "circleci/node",
+        "cimg/node",
+        "@types/node"
+      ],
       "versioning": "node"
     },
     {
