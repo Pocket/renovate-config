@@ -21,6 +21,14 @@ You also need to ensure the following:
 * [renovate-approve](https://github.com/apps/renovate-approve) is allowed on your repository
 * All dependabot and auto-merge files are removed from your repository. While, not necessary, they will conflict with each other.
 * Allow auto-merge is enabled in your GitHub repository settings. While not necessary this will allow Renovate to use Github's default auto-merging strategy.
+* If you want support for Vulnerability Alerts, ensure that the `Dependency graph` and `Dependabot alerts` options are enabled in `Code security and analysis` for your repo. Checks for vulnerability alerts are based off dependabot alerts, which reference the [GitHub Advisory Database](https://github.com/advisories) for packages with reported vulnerabilities. Checks for dependencies with active advisories:
+  * Are performed freely at any time.
+  * Do not wait for release stability.
+  * Open PRs immediately, ignoring limits to the number of active PRs.
+  * Do not attempt to group dependencies.
+  * Are marked up differently from other PRs in order to enable driving alerts.
+    * Commit messages are appended with the string `[SECURITY]`.
+    * Branch names end with `*-vulnerability`
 
 
 # Testing

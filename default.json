@@ -94,5 +94,18 @@
         "matchDepTypes": ["engines"]
       }
     ]
+  },
+  "vulnerabilityAlerts": {
+    "groupName": null,
+    "schedule": ["at any time"],
+    "dependencyDashboardApproval": false,
+    "stabilityDays": 0,
+    "rangeStrategy": "update-lockfile",
+    "commitMessageSuffix": "[SECURITY]",
+    "branchTopic": "{{{datasource}}}-{{{depName}}}-vulnerability",
+    "prCreation": "immediate",
+    "addLabels": ["dependencies"],
+    "branchConcurrentLimit": 0,
+    "prConcurrentLimit": 0
   }
 }
