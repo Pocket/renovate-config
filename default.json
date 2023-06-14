@@ -17,6 +17,11 @@
       "labels": ["docker-update"]
     },
     {
+      "managers": ["docker-compose"],
+      "updateTypes": ["digest"],
+      "enabled": false
+    },
+    {
       "matchDatasources": ["npm"],
       "stabilityDays": 1
     },
