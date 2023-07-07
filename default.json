@@ -5,7 +5,9 @@
     "group:recommended",
     ":semanticCommits",
     "workarounds:typesNodeVersioning",
-    "preview:dockerCompose"
+    "preview:dockerCompose",
+    ":dependencyDashboard",
+    ":dependencyDashboardApproval"
   ],
   "labels": ["dependencies"],
   "pinDigests": true,
@@ -29,10 +31,6 @@
       "matchUpdateTypes": ["patch", "pin", "digest"],
       "dependencyDashboardApproval": false,
       "automerge": true
-    },
-    {
-      "matchUpdateTypes": ["minor", "major"],
-      "dependencyDashboardApproval": true
     },
     {
       "matchDepTypes": ["devDependencies"],
