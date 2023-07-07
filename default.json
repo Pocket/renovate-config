@@ -34,12 +34,6 @@
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "automerge": true
-    },
-    {
-      "matchDatasources": ["npm"],
-      "matchDepTypes": ["devDependencies"],
-      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
       "dependencyDashboardApproval": false,
       "automerge": true
     },
@@ -54,13 +48,13 @@
       "groupName": "github-actions"
     },
     {
-      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pin"],
       "semanticCommitType": "fix",
       "matchPackagePrefixes": ["aws-xray"],
       "groupName": "aws-xray"
     },
     {
-      "matchUpdateTypes": ["minor", "major", "patch", "pin"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pin"],
       "semanticCommitType": "fix",
       "matchPackagePrefixes": ["cdktf", "cdktf-cli", "constructs", "@cdktf/"],
       "groupName": "cdktf"
@@ -75,11 +69,6 @@
         "@types/node"
       ],
       "versioning": "node"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["localstack", "localstack/localstack"],
-      "schedule": ["on tuesday"]
     }
   ],
   "node": {
