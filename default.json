@@ -29,12 +29,10 @@
     },
     {
       "matchUpdateTypes": ["patch", "pin", "digest"],
-      "dependencyDashboardApproval": false,
       "automerge": true
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "dependencyDashboardApproval": false,
       "automerge": true
     },
     {
