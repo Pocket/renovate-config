@@ -10,30 +10,35 @@
     ":dependencyDashboardApproval"
   ],
   "labels": ["dependencies"],
-  "pinDigests": true,
-  "platformAutomerge": true,
   "suppressNotifications": ["prIgnoreNotification", "onboardingClose"],
   "packageRules": [
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"]
+    },
     {
       "matchDatasources": ["docker"],
       "labels": ["docker-update"]
     },
     {
-      "managers": ["docker-compose"],
-      "updateTypes": ["digest"],
-      "enabled": false
+      "managers": ["docker-compose", "circleci"],
+      "pinDigests": false
+    },
+    {
+      "managers": ["dockerfile"],
+      "pinDigests": true
     },
     {
       "matchDatasources": ["npm"],
       "stabilityDays": 1
     },
     {
-      "matchUpdateTypes": ["patch", "pin", "digest"],
-      "automerge": true
+      "matchUpdateTypes": ["patch", "pin", "digest"]
     },
     {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true
+      "matchDepTypes": ["devDependencies"]
     },
     {
       "semanticCommitType": "chore",
