@@ -50,6 +50,12 @@
       "semanticCommitType": "fix",
       "matchPackagePrefixes": ["aws-xray"],
       "groupName": "aws-xray"
+    },    
+    {
+      "matchUpdateTypes": ["major", "minor", "patch", "pin"],
+      "semanticCommitType": "fix",
+      "matchPackagePrefixes": ["opentelemtry", "opentelemtry-contrib", "@opentelemtry/"],
+      "groupName": "opentelemtry"
     },
     {
       "matchUpdateTypes": ["major", "minor", "patch", "pin"],
